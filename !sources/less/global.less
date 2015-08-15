@@ -1,0 +1,163 @@
+@font-face {
+	font-family:'icons';
+	src:		url(~'@{folder_fonts}/icons.ttf') format('truetype');
+	font-weight:normal;
+	font-style: normal;
+}
+
+@nav_width:			240px;
+@nav_width_small:	60px;
+@header_height: 	60px;
+@footer_height: 	40px;
+
+@color_fuel:		hsl(113, 35%, 60%);
+@color_ammo:		hsl(47, 38%, 68%);
+@color_steel:		hsl(0, 0%, 89%);
+@color_bauxite:		hsl(26, 79%, 76%);
+
+
+
+
+// Global/Base frame/layout
+html{
+	&, body{
+		min-height:	100%;
+		height: 	100%;
+	}
+}
+
+
+body{
+	font-family:	@font_family_sans;
+	font-size: 		@base_fontsize;
+	line-height:	@base_line_height;
+	margin: 		0;
+}
+
+
+button, input, textarea, select{
+	&:focus, &:active{
+		outline:	0;
+	}
+}
+
+body, button{
+	font-family:	@font_family_sans;
+	font-weight: 	300;
+}
+
+// Title / Headers
+	h1, h2, h3, h4, h5, h6{
+		font-family:@font_family_title;
+		line-height:1.2em;
+		position:	relative;
+		font-weight: 	lighter;
+		small{
+			font-size:	small;
+			opacity:	.75;
+			padding-left:1em;
+		}
+		&[data-content]:before{
+			content:	attr(data-content);
+			display:	block;
+			font:		inherit;
+			position:	absolute;
+			top:		0;
+			left:		0;
+			z-index:	1;
+			text-shadow:0 0 1px #000;
+			.mask-image( ~"linear-gradient(to bottom, transparent, #000)" );
+		}
+	}
+	h2{
+		font-size: 	26px;
+	}
+	h3{
+		font-size: 	20px;
+	}
+	h4{
+		font-size: 	16px;
+	}
+	h5{
+		font-size: 	14px;
+	}
+
+.none{
+	display:	none;
+}
+
+.none-visible{
+	display:	block;
+	z-index:	-1;
+	position:	absolute;
+	width:		0;
+	left:		0;
+	overflow:	hidden;
+	left:		-100%;
+	top:		-100%;
+}
+
+iframe{
+	border:		0;
+}
+
+table{
+	border-collapse:	collapse;
+	border-spacing:		0;
+}
+	table, td{
+		padding:	0;
+		border:		0 none
+	}
+
+.container{
+	display:		inline-block;
+	text-align:		center;
+	vertical-align:	middle;
+	&>*{
+		position:		relative;
+		display:		inline-block;
+		max-width:		100%;
+		max-height:		100%;
+		vertical-align:	middle;
+		margin:			0 auto;
+		padding:		0;
+		border:			0;
+	}
+	&:after{
+		content:		"";
+		display:		inline-block;
+		vertical-align:	middle;
+		width:			0;
+		height:			100%;
+	}
+}
+
+button{
+	.appearance(none);
+	background:	none transparent;
+	border:		0;
+	padding:	0;
+	display:	inline-block;
+	text-align:	center;
+}
+
+[icon]:before{
+	font-family:	'icons';
+	content:		attr(icon);
+	speak:			none;
+	vertical-align:	text-middle;
+	opacity:		0.75;
+	display:		inline-block;
+	padding-right:	0.15em;
+	font-size:		0.9em;
+	font-weight:	lighter;
+	font-style:		normal;
+	min-width:		0.7em;
+}
+
+ul{
+	li{
+		margin-left:	0;
+	}
+}

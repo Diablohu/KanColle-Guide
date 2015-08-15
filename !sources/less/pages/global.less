@@ -1,0 +1,134 @@
+#layout{
+	z-index:	2;
+	position:	relative;
+	width:		100%;
+	min-height:	100%;
+	box-sizing: border-box;
+	padding: 	0 0 0 @nav_width;
+	//background:	~"url(@{folder_images}/body-bg.png) 50% 38.2%";
+	background:	~"url(@{folder_images}/body-bg.png) 50% 0";
+	//background-attachment: fixed;
+	
+	header, nav, footer{
+		position: 		fixed;
+		z-index: 		10;
+	}
+	
+	header{
+		height: 		@header_height;
+		line-height: 	(@header_height - 1);
+		padding: 		0 20px;
+		overflow: 		hidden;
+		box-sizing: 	border-box;
+		color: 			hsl(190, 25%, 80%);
+		background: 	linear-gradient(to bottom, hsla(190, 50%, 10%, .65), hsla(190, 50%, 10%, .95) calc(100% - 2px), transparent);
+		border-bottom:	1px solid hsla(190, 100%, 20%, .9);
+		top: 			0;
+		left: 			0;
+		width: 			100%;
+		
+		h2{
+			font-size: 		13px;
+			margin: 		8px 0 0 0;
+		}
+		
+		h1{
+			font-size: 		20px;
+			margin: 		0;
+		}
+	}
+	
+	nav{
+		top: 			@header_height;
+		left: 			0;
+		width: 			@nav_width;
+		height: 		~"calc( 100% - @{header_height} - @{footer_height} )";
+		background: 	hsla(190, 50%, 20%, .85);
+		box-sizing: 	border-box;
+		color: 			hsl(190, 85%, 80%);
+		padding: 		20px 0;
+		overflow: 		auto;
+		
+		&>h2, &>span, &>label{
+			display: 		block;
+			line-height: 	20px;
+			margin: 		0;
+		}
+		
+		&>h2{
+			margin-bottom: 	10px;
+			padding: 		5px 20px 10px 20px;
+		}
+		
+		&>span, &>label{
+			font-size: 		16px;
+			padding: 		5px 20px 10px 20px;
+		}
+		
+		&>label{
+			color: 			hsl(190, 50%, 90%);
+			padding: 		15px 30px;
+			&:hover{
+				background: 	hsla(190, 50%, 50%, .35);
+			}
+			&:active{
+				background: 	hsla(190, 50%, 50%, .15);
+			}
+		}
+	}
+	
+	footer{
+		height: 		@footer_height;
+		line-height: 	@footer_height;
+		padding: 		0 20px;
+		overflow: 		hidden;
+		box-sizing: 	border-box;
+		color: 			hsl(190, 0%, 50%);
+		background: 	hsla(190, 0%, 75%, .85);
+		bottom:			0;
+		left: 			0;
+		width: 			100%;		
+	}
+	
+	main{
+		position: 		relative;
+		width: 			100%;
+		//min-height: 	(573px + @header_height);
+		box-sizing: 	border-box;
+		margin: 		0 auto;
+		padding: 		(@header_height + 20) 30px (@footer_height + 20) 30px;
+		//background:		~"url(@{folder_images}/highlight-bg.jpg) no-repeat 50% 0";
+		//background-attachment: fixed;
+		
+		&>section.main{
+			display: 	none;
+			.fadein();
+			h2{
+				margin: 	0;
+			}
+		}
+	}
+	
+	&>input[name="maintab"]{
+		.tab( @name ){
+			&[value="content-@{name}"]:checked{
+				& ~ nav > [for="maintab-content-@{name}"]{
+					background: 	hsl(190, 50%, 20%);
+				}
+				& ~ main > section.main#content-@{name}{
+					display: 		block;
+				}
+			}
+		}
+		
+		.tab(~"2015summer-introduction");
+		.tab(~"2015summer-journal");
+		.tab(~"2015summer-guide-1");
+		.tab(~"2015summer-guide-2");
+		.tab(~"2015summer-guide-3");
+		.tab(~"2015summer-guide-4");
+		.tab(~"2015summer-guide-5");
+		.tab(~"2015summer-guide-6");
+		.tab(~"2015summer-guide-7");
+	}
+}
