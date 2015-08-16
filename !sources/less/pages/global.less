@@ -223,7 +223,8 @@ section.main{
 		@media all and (min-width: @screenwidth_largescreen2 ){
 			margin: 	0;
 			width: 		70%;
-			img[alt="地图"]{
+			img[alt="地图"],
+			img[alt="level-map"]{
 				position: 	fixed;
 				min-width: 	~"calc((100% - @{nav_width}) * 0.3 - 35px) ";
 				max-width: 	~"calc((100% - @{nav_width}) * 0.3 - 35px) ";
@@ -242,6 +243,10 @@ table{
 	width: 	100%;
 	font-size: 		14px;
 	line-height: 	1.4;
+	.node{
+		line-height: 	1.4;
+		width: 			1.4em;
+	}
 	tbody{
 		td{
 			padding: 		4px 4px;
@@ -295,3 +300,39 @@ code{
 		width: 		100%;
 		height: 	100%;
 	}
+
+.node{
+	display: 	inline-block;
+	width: 		1.5em;
+	line-height:1.5em;
+	margin: 	.1em;
+	text-align: center;
+	color: 		#fff;
+	background: hsl(0, 100%, 74%);
+	box-sizing: border-box;
+	border-radius: 50%;
+	vertical-align: bottom;
+	&.node-night{
+		background: hsl(0, 100%, 20%);
+	}
+	&.node-nobattle{
+		background: hsl(191, 100%, 55%);
+	}
+	&.node-air{
+		background: hsl(280, 100%, 55%);
+	}
+	&.node-supply{
+		background: hsl(90, 79%, 45%);
+	}
+	&.node-whirlpool{
+		color: 		hsl(253, 78%, 51%);
+		background: hsl(253, 100%, 89%);
+	}
+	&.node-scout{
+		background: hsl(64, 80%, 34%);
+	}
+	&.node-boss{
+		background: ~"url(@{folder_images}/node-boss.png) 50% 50% / cover";
+		color: 		transparent;
+	}
+}
