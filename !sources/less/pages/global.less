@@ -67,6 +67,11 @@
 			display: 		block;
 			line-height: 	20px;
 			margin: 		0;
+			position: 		relative;
+			span{
+				display: 	block;
+				position: 	relative;
+			}
 		}
 		
 		&>h2{
@@ -93,7 +98,39 @@
 			}
 			&.cur{
 				background:		hsl(190, 50%, 20%);
+				cursor: 		default;
 			}
+		}
+		
+		&>.level-2015summer{
+			span{
+				padding-left: 	40px;
+				&:before{
+					content: 		"";
+					position: 		absolute;
+					left: 			0;
+					top: 			50%;
+					border-radius: 	50%;
+					background: 	~"hsla(190, 50%, 50%, .35) url(@{folder_images}/event-2015-08/nav-icons.png) no-repeat 50% 0 / cover";
+					width: 			30px;
+					height: 		30px;
+					margin-top: 	-15px;
+				}
+				@media all and (max-width: @screenwidth_smartphone ){
+					padding-left: 	32px;
+					&:before{
+						transform-origin: 0 50%;
+						transform: 	scale( (25 / 30) );
+					}
+				}
+			}
+			.loop(@n, @i: 2) when (@i =< @n) {
+				&.level-2015summer-@{i} span:before{
+				background-position-y: 	( (@i - 1) * -30px );
+			}
+				.loop(@n, (@i + 1))
+			}
+			.loop(7);
 		}
 	}
 	
