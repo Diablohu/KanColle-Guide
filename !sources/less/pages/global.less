@@ -263,11 +263,35 @@ section.main{
 				float: 		right;
 				text-align: right;
 			}
+			.ds-comments, .ds-paginator, li.ds-post{
+				border-color: 	hsl(0, 0%, 80%);
+			}
+			/*
+			li.ds-post{
+				position: 	relative;
+				&:after{
+					content: 	"";
+					display: 	block;
+					width: 		100%;
+					height: 	60px;
+					top: 		0;
+					left: 		0;
+					position: 	absolute;
+					z-index: 	-1;
+					background:	linear-gradient(to right, transparent, rgba(255,255,255,.35), transparent);
+					.mask(~"linear-gradient(to bottom, #000 50%, transparent)");
+				}
+			}
+			*/
+			.ds-paginator{
+				background:	linear-gradient(to right, transparent, rgba(255,255,255,.25), transparent);
+				.mask(~"linear-gradient(to bottom, #000 50%, transparent)");
+			}
 		}
 		textarea{
-			background: 	rgba(255, 255, 255, .65);
+			background: 	rgba(255, 255, 255, .5);
 			&:hover{
-				background: 	rgba(255, 255, 255, .8);
+				background: 	rgba(255, 255, 255, .75);
 			}
 			&:focus{
 				background: 	#fff;
