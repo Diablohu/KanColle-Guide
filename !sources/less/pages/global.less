@@ -17,7 +17,7 @@
 	header{
 		height: 		@header_height;
 		line-height: 	(@header_height - 1);
-		padding: 		0 20px;
+		padding: 		0 20px 0 0;
 		overflow: 		hidden;
 		box-sizing: 	border-box;
 		color: 			hsl(190, 25%, 80%);
@@ -27,9 +27,23 @@
 		left: 			0;
 		width: 			100%;
 		
+		a{
+			color: 			inherit;
+			display: 		inline-block;
+			text-decoration:none;
+			height: 		(@header_height - 1);
+			width: 			@nav_width;
+			box-sizing: 	border-box;
+			padding: 		0 20px;
+			&:hover{
+				background: 	rgba(255, 255, 255, .1);
+			}
+		}
+		
 		h2{
 			font-size: 		13px;
-			margin: 		8px 0 0 0;
+			padding: 		8px 0 0 0;
+			margin: 		0;
 		}
 		
 		h1{
@@ -49,7 +63,7 @@
 		padding: 		20px 0;
 		overflow: 		auto;
 		
-		&>h2, &>span, &>label{
+		&>h2, &>span, &>label, &>a{
 			display: 		block;
 			line-height: 	20px;
 			margin: 		0;
@@ -60,12 +74,16 @@
 			padding: 		5px 20px 10px 20px;
 		}
 		
-		&>span, &>label{
+		&>span, &>label, &>a{
 			font-size: 		16px;
 			padding: 		5px 20px 10px 20px;
 		}
 		
-		&>label{
+		&>a{
+			text-decoration:none;
+		}
+		
+		&>label, &>a{
 			color: 			hsl(190, 50%, 90%);
 			padding: 		15px 30px;
 			&:hover{
@@ -73,6 +91,9 @@
 			}
 			&:active{
 				background: 	hsla(190, 50%, 50%, .15);
+			}
+			&.cur{
+				background:		hsl(190, 50%, 20%);
 			}
 		}
 	}
@@ -102,14 +123,15 @@
 		//background-attachment: fixed;
 		
 		&>section.main{
-			display: 	none;
-			.fadein();
+			//display: 	none;
+			//.fadein();
 			h2{
 				margin: 	0;
 			}
 		}
 	}
 	
+	/*
 	&>input[name="maintab"]{
 		.tab( @name ){
 			&[value="content-@{name}"]:checked{
@@ -131,7 +153,7 @@
 		.tab(~"2015summer-guide-5");
 		.tab(~"2015summer-guide-6");
 		.tab(~"2015summer-guide-7");
-	}
+	}*/
 }
 
 section.main{
