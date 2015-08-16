@@ -76,7 +76,7 @@
 		
 		&>span, &>label, &>a{
 			font-size: 		16px;
-			padding: 		5px 20px 10px 20px;
+			padding: 		15px 30px;
 		}
 		
 		&>a{
@@ -85,7 +85,6 @@
 		
 		&>label, &>a{
 			color: 			hsl(190, 50%, 90%);
-			padding: 		15px 30px;
 			&:hover{
 				background: 	hsla(190, 50%, 50%, .35);
 			}
@@ -154,6 +153,26 @@
 		.tab(~"2015summer-guide-6");
 		.tab(~"2015summer-guide-7");
 	}*/
+	
+	@media all and (max-width: @screenwidth_smartphone ){
+		padding-left: 	@nav_width_small;
+		nav{
+			width: 		@nav_width_small;
+			
+			&>h2{
+				font-size: 		20px;
+				line-height: 	22px;
+				margin-bottom: 	6px;
+				padding: 		5px 10px;
+			}
+			
+			&>span, &>label, &>a{
+				font-size: 		13px;
+				padding: 		15px 10px;
+				line-height: 	16px;
+			}
+		}
+	}
 }
 
 section.main{
@@ -187,7 +206,7 @@ section.main{
 	img{
 		display: 	block;
 		margin: 	0 auto;
-		max-height: ~"calc( 100vh - @{header_height} - @{footer_height} - 10px )";
+		max-height: ~"calc( 100vh - @{header_height} - @{footer_height} - @{footer_height} - 20px )";
 	}
 	
 	#ds-thread{
@@ -196,6 +215,20 @@ section.main{
 			.ds-meta{
 				text-align: 	right;
 				padding-bottom: 0;
+			}
+		}
+	}
+	
+	&.main-2015summer-level{
+		@media all and (min-width: @screenwidth_largescreen2 ){
+			margin: 	0;
+			width: 		65%;
+			img[alt="地图"]{
+				position: 	fixed;
+				min-width: 	~"calc((100% - @{nav_width}) * 0.35 - 35px) ";
+				max-width: 	~"calc((100% - @{nav_width}) * 0.35 - 35px) ";
+				top: 		(@header_height + 20);
+				right: 		20px;
 			}
 		}
 	}
