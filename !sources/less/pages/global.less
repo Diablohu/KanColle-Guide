@@ -77,6 +77,9 @@
 		&>h2{
 			margin-bottom: 	10px;
 			padding: 		5px 20px 10px 20px;
+			&~h2{
+				margin-top:	2em;
+			}
 		}
 		
 		&>span, &>label, &>a{
@@ -102,7 +105,8 @@
 			}
 		}
 		
-		&>.level-2015summer{
+		&>.level-2015summer,
+		&>.level-2015autumn{
 			span{
 				padding-left: 	40px;
 				&:before{
@@ -111,7 +115,7 @@
 					left: 			0;
 					top: 			50%;
 					border-radius: 	50%;
-					background: 	~"hsla(190, 50%, 50%, .35) url(@{folder_images}/event-2015-08/nav-icons.png) no-repeat 50% 0 / cover";
+					background: 	~"hsla(190, 50%, 50%, .35) no-repeat 50% 0 / cover";
 					width: 			30px;
 					height: 		30px;
 					margin-top: 	-15px;
@@ -124,6 +128,12 @@
 					}
 				}
 			}
+		}
+		
+		&>.level-2015summer{
+			span:before{
+				background-image:	~"url(@{folder_images}/event-2015-08/nav-icons.png)";
+			}
 			.loop(@n, @i: 2) when (@i =< @n) {
 				&.level-2015summer-@{i} span:before{
 				background-position-y: 	( (@i - 1) * -30px );
@@ -131,6 +141,19 @@
 				.loop(@n, (@i + 1))
 			}
 			.loop(7);
+		}
+		
+		&>.level-2015autumn{
+			span:before{
+				background-image:	~"url(@{folder_images}/event-2015-11/nav-icons.png)";
+			}
+			.loop(@n, @i: 2) when (@i =< @n) {
+				&.level-2015autumn-@{i} span:before{
+				background-position-y: 	( (@i - 1) * -30px );
+			}
+				.loop(@n, (@i + 1))
+			}
+			.loop(5);
 		}
 	}
 	
@@ -303,7 +326,7 @@ section.main{
 		}
 	}
 	
-	&.main-2015summer-level{
+	.map_positioning(){
 		@media all and (min-width: @screenwidth_largescreen2 ){
 			margin: 	0;
 			width: 		67.5%;
@@ -325,6 +348,9 @@ section.main{
 				max-width: 	~"calc((100% - @{nav_width}) * 0.3 - 35px) ";
 			}
 		}
+	}
+	&.main-2015summer-level, &.main-2015autumn-level{
+		.map_positioning();
 	}
 }
 
