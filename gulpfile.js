@@ -44,7 +44,7 @@ gulp.task('KanColleGuides-js', function(){
 
 gulp.task('KanColleGuides-css', function(){
 	return gulp.src([
-			'./source/css-global.less'
+			'./!sources/css-global.less'
 		])
 		.pipe(less())
 		.pipe(minifyCSS())

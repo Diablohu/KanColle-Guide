@@ -1,3 +1,5 @@
+@transition-duration: 0.2s;
+
 #layout{
 	z-index:	2;
 	position:	relative;
@@ -8,238 +10,238 @@
 	//background:	~"url(@{folder_images}/body-bg.png) 50% 38.2%";
 	background:	~"url(@{folder_images}/body-bg.png) 50% 0";
 	//background-attachment: fixed;
+}
 	
-	header, nav, footer{
-		position: 		fixed;
-		z-index: 		10;
-	}
+header, nav, footer{
+	position: 		fixed;
+	z-index: 		10;
+}
+
+header{
+	height: 		@header_height;
+	line-height: 	(@header_height - 1);
+	padding: 		0 20px 0 0;
+	overflow: 		hidden;
+	box-sizing: 	border-box;
+	color: 			hsl(190, 25%, 80%);
+	background: 	linear-gradient(to bottom, hsla(190, 50%, 15%, .85), hsla(190, 50%, 10%, .95) ~"calc(100% - 1px)", transparent ~"calc(100% - 1px)");
+	border-bottom:	1px solid hsl(190, 100%, 20%);
+	top: 			0;
+	left: 			0;
+	width: 			100%;
 	
-	header{
-		height: 		@header_height;
-		line-height: 	(@header_height - 1);
-		padding: 		0 20px 0 0;
-		overflow: 		hidden;
-		box-sizing: 	border-box;
-		color: 			hsl(190, 25%, 80%);
-		background: 	linear-gradient(to bottom, hsla(190, 50%, 15%, .85), hsla(190, 50%, 10%, .95) ~"calc(100% - 1px)", transparent ~"calc(100% - 1px)");
-		border-bottom:	1px solid hsl(190, 100%, 20%);
-		top: 			0;
-		left: 			0;
-		width: 			100%;
-		
-		a{
-			color: 			inherit;
-			display: 		inline-block;
-			text-decoration:none;
-			height: 		(@header_height - 1);
-			width: 			@nav_width;
-			box-sizing: 	border-box;
-			padding: 		0 20px;
-			&:hover{
-				background: 	rgba(255, 255, 255, .1);
-			}
-		}
-		
-		h2{
-			font-size: 		13px;
-			padding: 		8px 0 0 0;
-			margin: 		0;
-		}
-		
-		h1{
-			font-size: 		20px;
-			margin: 		0;
-		}
-	}
-	
-	nav{
-		top: 			@header_height;
-		left: 			0;
+	a{
+		color: 			inherit;
+		display: 		inline-block;
+		text-decoration:none;
+		height: 		(@header_height - 1);
 		width: 			@nav_width;
-		height: 		~"calc( 100% - @{header_height} - @{footer_height} )";
-		background: 	hsla(190, 50%, 20%, .85);
 		box-sizing: 	border-box;
-		color: 			hsl(190, 85%, 80%);
-		padding: 		20px 0;
-		overflow: 		auto;
-		
-		&>h2, &>span, &>label, &>a{
-			display: 		block;
-			line-height: 	20px;
-			margin: 		0;
-			position: 		relative;
-			span{
-				display: 	block;
-				position: 	relative;
+		padding: 		0 0 0 20px;
+		&:hover{
+			background: 	rgba(255, 255, 255, .1);
+		}
+	}
+	
+	h2{
+		font-size: 		13px;
+		padding: 		8px 0 0 0;
+		margin: 		0;
+	}
+	
+	h1{
+		font-size: 		20px;
+		margin: 		0;
+	}
+}
+
+nav{
+	top: 			@header_height;
+	left: 			0;
+	width: 			@nav_width;
+	height: 		~"calc( 100% - @{header_height} - @{footer_height} )";
+	background: 	hsla(190, 50%, 20%, .85);
+	box-sizing: 	border-box;
+	color: 			hsl(190, 85%, 80%);
+	padding: 		20px 0;
+	overflow: 		auto;
+	
+	&>h2, &>span, &>label, &>a{
+		display: 		block;
+		line-height: 	20px;
+		margin: 		0;
+		position: 		relative;
+		span{
+			display: 	block;
+			position: 	relative;
+		}
+	}
+	
+	&>h2{
+		margin-bottom: 	10px;
+		padding: 		5px 20px 10px 20px;
+		&~h2{
+			margin-top:	2em;
+		}
+	}
+	
+	&>span, &>label, &>a{
+		font-size: 		16px;
+		padding: 		15px 30px;
+	}
+	
+	&>a{
+		text-decoration:none;
+	}
+	
+	&>label, &>a{
+		color: 			hsl(190, 50%, 90%);
+		&:hover{
+			background: 	hsla(190, 50%, 50%, .35);
+		}
+		&:active{
+			background: 	hsla(190, 50%, 50%, .15);
+		}
+		&.cur{
+			background:		hsl(190, 50%, 20%);
+			cursor: 		default;
+		}
+	}
+	
+	&>.level-2015summer,
+	&>.level-2015autumn{
+		span{
+			padding-left: 	40px;
+			&:before{
+				content: 		"";
+				position: 		absolute;
+				left: 			0;
+				top: 			50%;
+				border-radius: 	50%;
+				background: 	~"hsla(190, 50%, 50%, .35) no-repeat 50% 0 / cover";
+				width: 			30px;
+				height: 		30px;
+				margin-top: 	-15px;
+			}
+			@media all and (max-width: @screenwidth_smartphone ){
+				padding-left: 	32px;
+				&:before{
+					transform-origin: 0 50%;
+					transform: 	scale( (25 / 30) );
+				}
 			}
 		}
+	}
+	
+	&>.level-2015summer{
+		span:before{
+			background-image:	~"url(@{folder_images}/event-2015-08/nav-icons.png)";
+		}
+		.loop(@n, @i: 2) when (@i =< @n) {
+			&.level-2015summer-@{i} span:before{
+				background-position: 	50% ( (@i - 1) * -30px );
+			}
+			.loop(@n, (@i + 1))
+		}
+		.loop(7);
+	}
+	
+	&>.level-2015autumn{
+		span:before{
+			background-image:	~"url(@{folder_images}/event-2015-11/nav-icons.png)";
+		}
+		.loop(@n, @i: 2) when (@i =< @n) {
+			&.level-2015autumn-@{i} span:before{
+				background-position: 	50% ( (@i - 1) * -30px );
+			}
+			.loop(@n, (@i + 1))
+		}
+		.loop(5);
+	}
+}
+
+footer{
+	height: 		@footer_height;
+	line-height: 	(@footer_height - 2);
+	padding: 		0 20px;
+	overflow: 		hidden;
+	box-sizing: 	border-box;
+	color: 			hsl(190, 0%, 50%);
+	background: 	hsla(190, 0%, 85%, .95);
+	border-top: 	2px solid hsl(190, 0%, 75%);
+	bottom:			0;
+	left: 			0;
+	width: 			100%;		
+}
+
+main{
+	position: 		relative;
+	width: 			100%;
+	//min-height: 	(573px + @header_height);
+	box-sizing: 	border-box;
+	margin: 		0 auto;
+	padding: 		(@header_height + 20) 30px (@footer_height + 20) 30px;
+	//background:		~"url(@{folder_images}/highlight-bg.jpg) no-repeat 50% 0";
+	//background-attachment: fixed;
+	
+	&>section.main{
+		//display: 	none;
+		//.fadein();
+		h2{
+			margin: 	0;
+		}
+	}
+}
+
+/*
+&>input[name="maintab"]{
+	.tab( @name ){
+		&[value="content-@{name}"]:checked{
+			& ~ nav > [for="maintab-content-@{name}"]{
+				background: 	hsl(190, 50%, 20%);
+			}
+			& ~ main > section.main#content-@{name}{
+				display: 		block;
+			}
+		}
+	}
+	
+	.tab(~"2015summer-introduction");
+	.tab(~"2015summer-journal");
+	.tab(~"2015summer-guide-1");
+	.tab(~"2015summer-guide-2");
+	.tab(~"2015summer-guide-3");
+	.tab(~"2015summer-guide-4");
+	.tab(~"2015summer-guide-5");
+	.tab(~"2015summer-guide-6");
+	.tab(~"2015summer-guide-7");
+}*/
+
+@media all and (max-width: @screenwidth_smartphone ){
+	padding-left: 	@nav_width_small;
+	nav{
+		width: 		@nav_width_small;
 		
 		&>h2{
-			margin-bottom: 	10px;
-			padding: 		5px 20px 10px 20px;
-			&~h2{
-				margin-top:	2em;
-			}
+			font-size: 		20px;
+			line-height: 	22px;
+			margin-bottom: 	6px;
+			padding: 		5px 10px;
 		}
 		
 		&>span, &>label, &>a{
-			font-size: 		16px;
-			padding: 		15px 30px;
-		}
-		
-		&>a{
-			text-decoration:none;
-		}
-		
-		&>label, &>a{
-			color: 			hsl(190, 50%, 90%);
-			&:hover{
-				background: 	hsla(190, 50%, 50%, .35);
-			}
-			&:active{
-				background: 	hsla(190, 50%, 50%, .15);
-			}
-			&.cur{
-				background:		hsl(190, 50%, 20%);
-				cursor: 		default;
-			}
-		}
-		
-		&>.level-2015summer,
-		&>.level-2015autumn{
-			span{
-				padding-left: 	40px;
-				&:before{
-					content: 		"";
-					position: 		absolute;
-					left: 			0;
-					top: 			50%;
-					border-radius: 	50%;
-					background: 	~"hsla(190, 50%, 50%, .35) no-repeat 50% 0 / cover";
-					width: 			30px;
-					height: 		30px;
-					margin-top: 	-15px;
-				}
-				@media all and (max-width: @screenwidth_smartphone ){
-					padding-left: 	32px;
-					&:before{
-						transform-origin: 0 50%;
-						transform: 	scale( (25 / 30) );
-					}
-				}
-			}
-		}
-		
-		&>.level-2015summer{
-			span:before{
-				background-image:	~"url(@{folder_images}/event-2015-08/nav-icons.png)";
-			}
-			.loop(@n, @i: 2) when (@i =< @n) {
-				&.level-2015summer-@{i} span:before{
-				background-position-y: 	( (@i - 1) * -30px );
-			}
-				.loop(@n, (@i + 1))
-			}
-			.loop(7);
-		}
-		
-		&>.level-2015autumn{
-			span:before{
-				background-image:	~"url(@{folder_images}/event-2015-11/nav-icons.png)";
-			}
-			.loop(@n, @i: 2) when (@i =< @n) {
-				&.level-2015autumn-@{i} span:before{
-				background-position-y: 	( (@i - 1) * -30px );
-			}
-				.loop(@n, (@i + 1))
-			}
-			.loop(5);
+			font-size: 		13px;
+			padding: 		15px 10px;
+			line-height: 	16px;
 		}
 	}
-	
-	footer{
-		height: 		@footer_height;
-		line-height: 	(@footer_height - 2);
-		padding: 		0 20px;
-		overflow: 		hidden;
-		box-sizing: 	border-box;
-		color: 			hsl(190, 0%, 50%);
-		background: 	hsla(190, 0%, 85%, .95);
-		border-top: 	2px solid hsl(190, 0%, 75%);
-		bottom:			0;
-		left: 			0;
-		width: 			100%;		
-	}
-	
 	main{
-		position: 		relative;
-		width: 			100%;
-		//min-height: 	(573px + @header_height);
-		box-sizing: 	border-box;
-		margin: 		0 auto;
-		padding: 		(@header_height + 20) 30px (@footer_height + 20) 30px;
-		//background:		~"url(@{folder_images}/highlight-bg.jpg) no-repeat 50% 0";
-		//background-attachment: fixed;
-		
-		&>section.main{
-			//display: 	none;
-			//.fadein();
-			h2{
-				margin: 	0;
-			}
-		}
+		padding-left: 	20px;
+		padding-right: 	20px;
 	}
-	
-	/*
-	&>input[name="maintab"]{
-		.tab( @name ){
-			&[value="content-@{name}"]:checked{
-				& ~ nav > [for="maintab-content-@{name}"]{
-					background: 	hsl(190, 50%, 20%);
-				}
-				& ~ main > section.main#content-@{name}{
-					display: 		block;
-				}
-			}
-		}
-		
-		.tab(~"2015summer-introduction");
-		.tab(~"2015summer-journal");
-		.tab(~"2015summer-guide-1");
-		.tab(~"2015summer-guide-2");
-		.tab(~"2015summer-guide-3");
-		.tab(~"2015summer-guide-4");
-		.tab(~"2015summer-guide-5");
-		.tab(~"2015summer-guide-6");
-		.tab(~"2015summer-guide-7");
-	}*/
-	
-	@media all and (max-width: @screenwidth_smartphone ){
-		padding-left: 	@nav_width_small;
-		nav{
-			width: 		@nav_width_small;
-			
-			&>h2{
-				font-size: 		20px;
-				line-height: 	22px;
-				margin-bottom: 	6px;
-				padding: 		5px 10px;
-			}
-			
-			&>span, &>label, &>a{
-				font-size: 		13px;
-				padding: 		15px 10px;
-				line-height: 	16px;
-			}
-		}
-		main{
-			padding-left: 	20px;
-			padding-right: 	20px;
-		}
-		section.main{
-			ul{
-				padding-left: 	1em;
-			}
+	section.main{
+		ul{
+			padding-left: 	1em;
 		}
 	}
 }
@@ -252,7 +254,7 @@ section.main{
 	line-height:1.7;
 	
 	h1, h2, h3, h4, h5, h6{
-		color: 		hsl(190, 100%, 40%);
+		color: 		hsl(190, 100%, 30%);
 	}
 	
 	h2 ~ h3{
@@ -276,10 +278,30 @@ section.main{
 		display: 	block;
 		margin: 	0 auto;
 		max-height: ~"calc( 100vh - @{header_height} - @{footer_height} - @{footer_height} - 20px )";
+		&+em{
+			font-style: 	normal;
+			text-align: 	center;
+			display: 		block;
+			&:before{
+				content: 	'\25B2  ';
+			}
+		}
 	}
 	
 	table .enemy{
 		font-size: 	12px;
+	}
+	
+	a{
+		color: 		hsl(210, 75%, 50%);
+		text-decoration: 	none;
+		//transition: color @transition-duration ease-out;
+		&:hover{
+			color: 	hsl(190, 100%, 10%);
+		}
+		&:active{
+			color: 	hsl(190, 50%, 50%);
+		}
 	}
 	
 	#ds-thread{
@@ -355,7 +377,7 @@ section.main{
 }
 
 .highlight{
-	color: 	hsl(190, 100%, 40%);
+	color: 	hsl(190, 100%, 30%);
 }
 
 table{
