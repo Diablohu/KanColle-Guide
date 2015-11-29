@@ -9,6 +9,7 @@ var minifyCSS = require('gulp-minify-css');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var babel = require("gulp-babel");
+var rename = require('gulp-rename');
 
 gulp.task('default',[
 	'KanColleGuides'
@@ -43,7 +44,9 @@ gulp.task('KanColleGuides-js', function(){
 					"transform-minify-booleans"
 				]
 		}))
-		//.pipe(uglify())
+		.pipe(gulp.dest('./assets'))
+		.pipe(uglify())
+		.pipe(rename({ extname: '.min.js' }))
 		.pipe(gulp.dest('./assets'))
 })
 
