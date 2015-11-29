@@ -26,17 +26,22 @@ gulp.task('default',[
 gulp.task('KanColleGuides-js', function(){
 	return gulp.src([
 			'./!sources/js/!.js',
-			
-			//'./node_modules/domready/src/ready.js',
-			
-			'./!sources/js/base.js'
+			'./!sources/js/base.js',
+			'./node_modules/kctip/dist/kctip.min.js'
 		])
 		.pipe(concat('js.js'))
 		.pipe(babel({
 			'highlightCode':	false,
 			'comments':			false,
 			'compact':			false,
-			'ast':				false
+			'ast':				false,
+			"presets": 			[
+					"es2015",
+					"stage-0"
+				],
+			"plugins":			[
+					"transform-minify-booleans"
+				]
 		}))
 		//.pipe(uglify())
 		.pipe(gulp.dest('./assets'))
