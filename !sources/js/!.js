@@ -5,6 +5,6 @@ function elmatches(elm, selector) {
 		i = matches.length;
 	while (--i >= 0 && matches.item(i) !== elm) ;
 	return i > -1;
-	return false;
+	//return false;
 }
 
