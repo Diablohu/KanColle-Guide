@@ -33,6 +33,6 @@
     "less-plugin-clean-css": "^1.5.1"
   },
   "dependencies": {
-    "kctip": "^0.2.2"
+    "kctip": "^0.3.1"
   }
 }
