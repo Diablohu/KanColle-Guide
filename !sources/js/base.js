@@ -71,4 +71,53 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	}, false);
 	*/
+	
+	// countdown
+	function countdown(el){
+		function convertTimeRemaining(ms){
+			ms = parseInt(ms)
+			return {
+				'total': ms,
+				'days': Math.floor( ms/(1000*60*60*24) ),
+				'hours': Math.floor( (ms/(1000*60*60)) % 24 ),
+				'minutes': Math.floor( (ms/1000/60) % 60 ),
+				'seconds': Math.floor( (ms/1000) % 60 )
+			};
+		}
+		function ticking( total ){
+			if( total > 10 * 1000 ){
+				let remaining = convertTimeRemaining(total)
+				formatRemaining(remaining)
+				setTimeout(function(){
+					ticking( total - 1000 )
+				}, 1000)
+			}else{
+				el.innerHTML = '活动即将开始'
+				if( el.getAttribute('countdown-reload') ){
+					setTimeout(function(){
+						location.reload()
+					}, 2 * 60 * 1000)
+				}
+			}
+		}
+		function formatRemaining( remaining ){
+			let html = '';
+			if( remaining.days )
+				html+= remaining.days + '<small>天</small>';
+				
+			if( remaining.hours )
+				html+= remaining.hours + '<small>时</small>';
+			else if( remaining.days )
+				html+= '0<small>时</small>'
+			
+			html+= (remaining.minutes || 0) + '<small>分</small>';
+			html+= (remaining.seconds || 0) + '<small>秒</small>';
+			
+			el.innerHTML = html;
+			return html
+		}
+
+		ticking( Date.parse(el.getAttribute('countdown')) - Date.parse(new Date()) )
+	}
+	[].forEach.call(document.querySelectorAll('[countdown]'), countdown);
 })

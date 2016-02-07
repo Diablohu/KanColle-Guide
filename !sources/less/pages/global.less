@@ -373,7 +373,9 @@ section.main{
 			}
 		}
 	}
-	&.main-2015summer-level, &.main-2015autumn-level{
+	&.main-2015summer-level,
+	&.main-2015autumn-level,
+	&.main-level{
 		.map_positioning();
 	}
 }
@@ -556,5 +558,28 @@ code{
 	&.node-boss{
 		background: ~"url(@{folder_images}/node-boss.png) 50% 50% / cover";
 		color: 		transparent;
+	}
+}
+
+.countdown{
+	background: 	hsl(0,0,85%);
+	background: 	hsla(0,0,85%, .8);
+	text-align: 	center;
+	padding: 		1em 0;
+	margin-top: 	1.7em;
+	border: 		1px solid hsl(0, 0, 80%);
+	[countdown]{
+        font-size:  2em;
+        line-height:1em;
+        padding-top:.5em;
+		display: 	block;
+		small{
+			font-size:  .65em;
+			padding-right: .35em;
+			line-height:1em;
+			&:last-child{
+				padding:    0;
+			}
+		}
 	}
 }

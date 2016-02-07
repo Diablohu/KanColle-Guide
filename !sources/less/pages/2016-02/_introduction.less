@@ -1,0 +1,20 @@
+section.main#content-2016winter-introduction{
+	@media all and (min-width: @screenwidth_largescreen2 ){
+		&:before{
+			content: 	"";
+			position: 	absolute;
+			background: 	~"url(@{folder_images}/event-2016-02/introduction.jpg)" no-repeat 100% 0%;
+			background-size: 100% auto;
+			right: 		0;
+			top: 		@header_height;
+			width: 		~"calc((100% - @{nav_width}) * 0.325 - 10px)";
+			height: 	100%;
+			position: 	fixed;
+		}
+	}
+	@media all and (min-width: @screenwidth_largescreen3 ){
+		&:before{
+			width: 		~"calc((100% - @{nav_width}) * 0.3 - 10px)";
+		}
+	}
+}
