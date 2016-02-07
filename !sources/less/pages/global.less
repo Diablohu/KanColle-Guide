@@ -171,7 +171,10 @@ footer{
 	border-top: 	2px solid hsl(190, 0%, 75%);
 	bottom:			0;
 	left: 			0;
-	width: 			100%;		
+	width: 			100%;
+	.donate{
+		float: 		right;
+	}
 }
 
 main{
@@ -248,6 +251,21 @@ main{
 	}
 }
 
+section.main, footer{
+	
+	a{
+		color: 		hsl(210, 75%, 50%);
+		text-decoration: 	none;
+		//transition: color @transition-duration ease-out;
+		&:hover{
+			color: 	hsl(190, 100%, 10%);
+		}
+		&:active{
+			color: 	hsl(190, 50%, 50%);
+		}
+	}
+}
+
 section.main{
 	max-width: 	1280px;
 	margin: 	0 auto;
@@ -292,18 +310,6 @@ section.main{
 	
 	table .enemy{
 		font-size: 	12px;
-	}
-	
-	a{
-		color: 		hsl(210, 75%, 50%);
-		text-decoration: 	none;
-		//transition: color @transition-duration ease-out;
-		&:hover{
-			color: 	hsl(190, 100%, 10%);
-		}
-		&:active{
-			color: 	hsl(190, 50%, 50%);
-		}
 	}
 	
 	#ds-thread{
