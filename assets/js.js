@@ -58,11 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				}, 1000);
 			} else {
 				el.innerHTML = '活动即将开始';
-				if (el.getAttribute('countdown-reload')) {
-					setTimeout(function () {
-						location.reload();
-					}, 2 * 60 * 1000);
-				}
+
+				setTimeout(function () {
+					location.reload();
+				}, 2 * 60 * 1000);
 			}
 		}
 		function formatRemaining(remaining) {
