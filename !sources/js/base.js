@@ -155,10 +155,10 @@ document.addEventListener("DOMContentLoaded", function(){
 				}
 
 				return timestamp;
-			};
+			}
 			endTimeParse = parser(endTimeString)
 		}
-		ticking( endTimeParse - Date.parse(new Date()) )
+		ticking( endTimeParse - (new Date()).valueOf() )
 	}
 	[].forEach.call(document.querySelectorAll('[countdown]'), countdown);
 })
