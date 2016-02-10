@@ -109,7 +109,8 @@ nav{
 	}
 	
 	&>.level-2015summer,
-	&>.level-2015autumn{
+	&>.level-2015autumn,
+	&>.level-2016winter{
 		span{
 			padding-left: 	40px;
 			&:before{
@@ -157,6 +158,19 @@ nav{
 			.loop(@n, (@i + 1))
 		}
 		.loop(5);
+	}
+	
+	&>.level-2016winter{
+		span:before{
+			background-image:	~"url(@{folder_images}/event-2016-02/nav-icons.png)";
+		}
+		.loop(@n, @i: 2) when (@i =< @n) {
+			&.level-2016winter-@{i} span:before{
+				background-position: 	50% ( (@i - 1) * -30px );
+			}
+			.loop(@n, (@i + 1))
+		}
+		.loop(3);
 	}
 }
 
